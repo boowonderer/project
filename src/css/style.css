@@ -4,7 +4,9 @@ body    {
     box-sizing: border-box;
 }
 
-
+    /*
+        nav-bar
+     */
 nav {
     display: flex;
     justify-content: space-around;
@@ -44,7 +46,9 @@ nav ul li a:hover{
     text-transform: uppercase;
     letter-spacing: 7px;
 }
-
+    /*
+        Header
+     */
 section {
     position: relative;
     width: 100%;
@@ -81,4 +85,37 @@ section .content h1 {
     color: #f8f8f8;
     font-size: 3em;
 }
+    /*
+    Fade in effect
+     */
+.content h1 {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
 
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
