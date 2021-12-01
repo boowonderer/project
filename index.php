@@ -1,4 +1,7 @@
 <?php
+session_start();
+include_once './src/includes/functions.inc.php';
+
 require './src/php/mysql.php';
 
 //$sql = "INSERT INTO personen (firstname, lastname, age, adress, city, length, weight) VALUES ('John', 'Doe', 19, 'halaljgig', 'houten', 2.6, 88)";
@@ -61,14 +64,19 @@ XYZ;
             <h1><a href="index.html"></a>ES.Excido</h1>
         </div>
         <ul class="nav-links">
-            <li><a href="">Home</a>
-            </li>
-            <li><a href="">Over Ons</a>
-            </li>
-            <li><a href="">Score</a>
-            </li>
-            <li><a href="">Contact</a>
-            </li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Over Ons</a></li>
+            <li><a href="">Score</a></li>
+            <li><a href="">Contact</a></li>
+         <?php
+            if (isset($_SESSION["userid"])) {
+                echo "<li><a href='./src/php/logout.php'>Logout</a></li>";
+            }
+            else {
+                echo "<li><a href='./src/php/signup.php'>Sign up</a></li>";
+                echo "<li><a href='./src/php/login.php'>Log in</a></li>";
+            }
+         ?>
         </ul>
     </nav>
 </header>
