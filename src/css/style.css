@@ -246,5 +246,5 @@ cards
 }
 
 section .signup-form *{
-    z-index: 1000;
+    z-index: 100;
 }
