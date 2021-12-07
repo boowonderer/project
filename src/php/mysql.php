@@ -1,10 +1,10 @@
 <?php
 $servername = "176.31.151.81";
-$username = "philip";
+$dbUsername = "philip";
 $password = "vc^yN9Nn$#eva9Fx_c3gC4Q*h0mWjH#6";
 $dbname = "philip";
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $dbUsername, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
