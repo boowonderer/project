@@ -59,6 +59,7 @@ XYZ;
 </head>
 <body>
 <header>
+
     <nav>
         <div class="logo">
             <h1><a href="index.html"></a>ES.Excido</h1>
@@ -68,6 +69,7 @@ XYZ;
             <li><a href="">Over Ons</a></li>
             <li><a href="">Score</a></li>
             <li><a href="">Contact</a></li>
+            <li><a href="">fakka</a></li>
          <?php
             if (isset($_SESSION["userid"])) {
                 echo "<li><a href='./src/php/logout.php'>Logout</a></li>";
