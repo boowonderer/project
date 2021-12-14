@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Escaperoom Excido</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/grid.css">
 </head>
 <body>
@@ -31,15 +31,20 @@
     </nav>
 </header>
 <section>
-<section class="signup-form">
-  <h2>Log In</h2>
-  <div class="signup-form-form">
-    <form action="../includes/login.inc.php" method="post">
-      <input type="text" name="uid" placeholder="Username/Email...">
-      <input type="password" name="pwd" placeholder="Password...">
-      <button type="submit" name="submit">Sign up</button>
-    </form>
-  </div>
+<div class="contact-content">
+            <div class="contact-form-container">
+                <h1>Log In</h1>
+                <form class="contact-form" action="../sources/php/contact-forum.php" method="post">
+                    <h3>Username</h3>
+                    <input type="text" name="name" placeholder="Naam" required="required">
+                    <h3>Password</h3>
+                    <input type="password" name="pwdrepeat" placeholder="Password..." >
+                    <h3>Repeat Password</h3>
+                    <input type="password" name="pwdrepeat" placeholder=" Repeat Password..." >
+                    <button type="submit" name="submit">Log in</button>
+                </form>
+            </div>
+        </div>
   <?php
     // Error messages
     if (isset($_GET["error"])) {
