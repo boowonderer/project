@@ -22,6 +22,8 @@
             if (isset($_SESSION["userid"])) {
                 echo "<li><a href='./src/php/logout.php'>Logout</a></li>";
             }
+            if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
+                 echo "<li><a href='dashboard.php'>Dashboard</a></li>";
             else {
                 echo "<li><a href='signup.php'>Sign up</a></li>";
                 echo "<li><a href='#'>Log in</a></li>";
@@ -34,27 +36,26 @@
 <div class="contact-content">
             <div class="contact-form-container">
                 <h1>Log In</h1>
-                <form class="contact-form" action="../sources/php/contact-forum.php" method="post">
-                    <h3>Username</h3>
-                    <input type="text" name="name" placeholder="Naam" required="required">
+                <form class="contact-form" action="../includes/login.inc.php" method="post">
+                    <h3>Username/Email</h3>
+                    <input type="text" name="uid" placeholder="Username/Email" required="required">
                     <h3>Password</h3>
-                    <input type="password" name="pwdrepeat" placeholder="Password..." >
-                    <h3>Repeat Password</h3>
-                    <input type="password" name="pwdrepeat" placeholder=" Repeat Password..." >
+                    <input type="password" name="pwd" placeholder="Password..." >
                     <button type="submit" name="submit">Log in</button>
                 </form>
+                <?php
+                    // Error messages
+                    if (isset($_GET["error"])) {
+                      if ($_GET["error"] == "emptyinput") {
+                        echo "<p>Fill in all fields!</p>";
+                      }
+                      else if ($_GET["error"] == "wronglogin") {
+                        echo "<p>Wrong login!</p>";
+                      }
+                    }
+                  ?>
             </div>
         </div>
-  <?php
-    // Error messages
-    if (isset($_GET["error"])) {
-      if ($_GET["error"] == "emptyinput") {
-        echo "<p>Fill in all fields!</p>";
-      }
-      else if ($_GET["error"] == "wronglogin") {
-        echo "<p>Wrong login!</p>";
-      }
-    }
-  ?>
+
 </section>
 

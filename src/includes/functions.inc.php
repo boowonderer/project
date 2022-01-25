@@ -125,6 +125,7 @@ function loginUser($conn, $username, $pwd) {
 	elseif ($checkPwd === true) {
 		session_start();
 		$_SESSION["userid"] = $uidExists["usersId"];
+		$_SESSION["userRole"] = $uidExists["role"];
 		$_SESSION["useruid"] = $uidExists["usersUid"];
 		header("location: ../../index.php?error=none");
 		exit();

@@ -143,3 +143,9 @@ div.contact-content {
     background: #d7d7d7;
 
 }
+
+p {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

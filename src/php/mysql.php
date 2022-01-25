@@ -1,5 +1,5 @@
 <?php
-$servername = "176.31.151.81";
+$servername = "198.244.216.169";
 $dbUsername = "philip";
 $password = "vc^yN9Nn$#eva9Fx_c3gC4Q*h0mWjH#6";
 $dbname = "philip";
@@ -19,4 +19,7 @@ $sql =  "create TABLE if not exists scoreformulier (
     bericht VARCHAR(30),
     keuzeveld ENUM('zeer tevreden', 'tevreden', 'ontevreden')
     )";
+$conn -> query($sql);
+
+$sql = "CREATE TABLE if not exists `reservations` ( `reservationId` INT NOT NULL AUTO_INCREMENT , `roomId` INT NOT NULL , `userId` INT NOT NULL , `date` DATE NOT NULL , `message` TEXT NOT NULL , PRIMARY KEY (`reservationId`));";
 $conn -> query($sql);

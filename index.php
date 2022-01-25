@@ -67,13 +67,15 @@ XYZ;
         <ul class="nav-links">
             <li><a href="">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="">Score</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="#formulier">Score</a></li>
+            <li><a href="#contact-content">Contact</a></li>
          <?php
             if (isset($_SESSION["userid"])) {
                 echo "<li><a href='./src/php/logout.php'>Logout</a></li>";
-            }
-            else {
+            if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
+                 echo "<li><a href='./src/php/reservation.php'>Reservation</a></li>";
+                 echo "<li><a href='src/php/dashboard.php'>Dashboard</a></li>";
+           } else {
                 echo "<li><a href='./src/php/signup.php'>Sign up</a></li>";
                 echo "<li><a href='./src/php/login.php'>Log in</a></li>";
             }
@@ -140,26 +142,51 @@ XYZ;
         </svg>
     </section-wave>
 
-  <div class="contact-content">
-        <div class="contact-form-container">
-            <h1>Contact</h1>
-            <form class="contact-form" action="../sources/php/contact-forum.php" method="post">
-                <h3>Naam</h3>
-                <input type="text" name="name" placeholder="Naam" required="required">
-                <h3>E-Mail</h3>
-                <input type="email" name="mail" placeholder="123456@mboutrecht.nl" required="required">
-                <h3>Onderwerp</h3>
-                <input type="text" name="subject" placeholder="Onderwerp" required="required">
-                <h3>Bericht</h3>
-                <textarea name="message" required="required"></textarea>
-                <button type="submit" name="submit">Versturen</button>
-            </form>
-        </div>
+    <div id="formulier">
+    <form action="./src/php/insert.php" enctype="multipart/form-data" method="post">
+        <label>Full Name</label>
+        <input type="text" name="fullname" placeholder="Your Full name">
+        <label>E-mail</label>
+        <input type="email" name="email" placeholder="Your E-mail">
+        <label>Score</label>
+        <input type="time" name="score" step="2" placeholder="Your Score">
+        <label>Message</label>
+        <input type="text" name="bericht" placeholder="Your Message">
+        <label>Satisfaction</label>
+        <select name="keuzeveld">
+            <option value="zeer tevreden">Very satisfied</option>
+            <option value="tevreden">Satisfied</option>
+            <option value="ontevreden">Unsatisfied</option>
+        </select>
+        <input type="submit" value="Submit">
+
+    </form>
     </div>
+    <div class="row">
+    <?php echo $cards; ?>
+    </div>
+
+      <div id="contact-content">
+            <div class="contact-form-container">
+                <h1>Contact</h1>
+                <form class="contact-form" action="src/includes/contact.inc.php" method="post">
+                    <h3>Name</h3>
+                    <input type="text" name="naam" placeholder="Full name" required="required">
+                    <h3>E-Mail</h3>
+                    <input type="email" name="mail" placeholder="Your E-Mail" required="required">
+                    <h3>Subject</h3>
+                    <input type="text" name="subject" placeholder="subject" required="required">
+                    <h3>Bericht</h3>
+                    <textarea name="message" placeholder="Message" required="required"></textarea>
+                    <button type="submit" name="submit">Send mail</button>
+                </form>
+            </div>
+        </div>
 
 
 
 
 
 </body>
+<script src="src/js/script.js"></script>
 </html>
